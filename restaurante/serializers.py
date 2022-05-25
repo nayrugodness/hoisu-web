@@ -6,3 +6,8 @@ class ItemMenuSerializer(serializers.ModelSerializer):
     class Meta:
         model = ItemMenu
         fields = '__all__'
+
+class GallerySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Gallery
+        fields = '__all__'
