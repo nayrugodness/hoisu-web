@@ -6,7 +6,7 @@ from .serializers import ItemMenuSerializer, GallerySerializer, EventSerializer,
 from django.views.generic import ListView, CreateView, DetailView, UpdateView
 from django.views.generic.edit import FormView
 
-class ReservationFormView(CreateView):
+class ReservationFormView(FormView):
     template_name = 'app/restaurant/create.html'
     form_class = ReservationForm
 
