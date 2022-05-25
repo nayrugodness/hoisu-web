@@ -5,3 +5,14 @@ from rest_framework import viewsets
 from .serializers import ItemMenuSerializer, GallerySerializer, EventSerializer, RestaurantSerializer, ReservationSerializer
 from django.views.generic import ListView, CreateView, DetailView
 from django.views.generic.edit import FormView
+
+class ReservationFormView(FormView):
+    template_name = 'app/restaurant/create.html'
+    form_class = ReservationForm
+
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+        form.send_email()
+        return super().form_valid(form)
