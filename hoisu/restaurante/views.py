@@ -5,4 +5,3 @@ from rest_framework import viewsets
 from .serializers import ItemMenuSerializer, GallerySerializer, EventSerializer, RestaurantSerializer, ReservationSerializer
 from django.views.generic import ListView, CreateView, DetailView
 from django.views.generic.edit import FormView
-
