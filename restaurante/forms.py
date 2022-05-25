@@ -13,3 +13,9 @@ class GalleryForm(forms.ModelForm):
     class Meta:
         model = Gallery
         fields = '__all__'
+
+class EventForm(forms.ModelForm):
+
+    class Meta:
+        model = Event
+        fields = '__all__'
