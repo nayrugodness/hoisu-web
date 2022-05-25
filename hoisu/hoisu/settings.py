@@ -132,3 +132,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 PWA_APP_NAME = 'Hoisu'
 PWA_APP_DESCRIPTION = 'Reservations platform'
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'serviceworker.js')
