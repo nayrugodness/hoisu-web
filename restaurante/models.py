@@ -47,6 +47,7 @@ class Restaurant(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
     city = models.CharField(max_length=20, choices=Ciudad, default="Armenia")
+    departamento = models.CharField(default="Quindío")
     price_min = models.CharField(max_length=10)
     price_max = models.CharField(max_length=50)
     menu = models.ManyToManyField(ItemMenu)
