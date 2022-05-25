@@ -7,3 +7,9 @@ class ItemMenuForm(forms.ModelForm):
     class Meta:
         model = ItemMenu
         fields = '__all__'
+
+class GalleryForm(forms.ModelForm):
+
+    class Meta:
+        model = Gallery
+        fields = '__all__'
