@@ -19,3 +19,9 @@ class EventForm(forms.ModelForm):
     class Meta:
         model = Event
         fields = '__all__'
+
+class RestaurantForm(forms.ModelForm):
+
+    class Meta:
+        model = Restaurant
+        fields = '__all__'
