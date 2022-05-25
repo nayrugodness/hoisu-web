@@ -1,6 +1,4 @@
 from django.db import models
-
-from django.db import models
 from django.template.defaultfilters import slugify
 
 # Create your models here.
@@ -59,7 +57,7 @@ class Restaurant(models.Model):
     description = models.TextField()
     type = models.CharField(max_length=20, choices=Categoria, default="Gourmet")
     place = models.CharField(max_length=50)
-    principal_image = models.ImageField(upload_to='restaurante/principal-img', null=False)
+    principal_image = models.ImageField(upload_to='restaurant/principal-img', null=False)
     gallery = models.ManyToManyField(Gallery)
     events = models.ManyToManyField(Event)
     slug = models.SlugField(unique=True)
