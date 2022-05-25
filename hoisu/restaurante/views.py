@@ -3,10 +3,10 @@ from .models import ItemMenu, Gallery, Event, Restaurant, Reservation
 from .forms import  ItemMenuForm, GalleryForm, EventForm, RestaurantForm, ReservationForm
 from rest_framework import viewsets
 from .serializers import ItemMenuSerializer, GallerySerializer, EventSerializer, RestaurantSerializer, ReservationSerializer
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView
 from django.views.generic.edit import FormView
 
-class ReservationFormView(FormView):
+class ReservationFormView(CreateView):
     template_name = 'app/restaurant/create.html'
     form_class = ReservationForm
 
