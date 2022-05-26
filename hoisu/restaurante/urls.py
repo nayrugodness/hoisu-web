@@ -4,6 +4,5 @@ from rest_framework import routers
 
 urlpatterns = [
     path('registrar-restaurante/', views.RestaurantCreateView.as_view(), name='registrar-restaurante'),
-    path('modificar-restaurante/', views.RestaurantUpdateView.as_view(), name='modificar-restaurante'),
     path('success', views.success, name='success'),
 ]
