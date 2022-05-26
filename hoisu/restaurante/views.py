@@ -62,3 +62,23 @@ def create_reservation(request):
             data['form'] = formulario
 
     return render(request, 'app/reservation/create.html', data)
+
+def update_reservation(request, slug):
+
+    reservation = get_object_or_404(Reservation, slug=slug)
+
+    data = {
+        'form' : ReservationForm(instance=reservation)
+    }
+
+    if request.method == 'POST':
+
+        formulario = RestaurantForm(data=request.POST, instance=reservation, files=request.FILES)
+
+        if formulario.is_valid():
+
+            formulario.save()
+
+        data["form"] = formulario
+
+    return render(request, 'app/reservation/update.html', data)
