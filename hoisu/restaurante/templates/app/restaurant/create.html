@@ -11,11 +11,15 @@
 </head>
 <body>
 {% load crispy_forms_tags %}
-<form method="post" style="display:flex; flex-direction:column;">
-    {% csrf_token %}
+    <form method="POST" enctype="multipart/form-data">
 
-    {{ form }}
-    <button type="submit">SUBMIT</button>
-</form>
+        <!-- Security token -->
+        {% csrf_token %}
+
+        <!-- Using the formset -->
+        {{ form.as_p }}
+
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>

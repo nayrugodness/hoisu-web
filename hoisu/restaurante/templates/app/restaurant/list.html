@@ -1,10 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hoisu C&R</title>
+
+    {% load static %}
+
+    {% block css %}
+    {% endblock %}
+    <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+
+    {% load pwa %}
+
+    {% progressive_web_app_meta %}
+
 </head>
 <body>
 
+<section id="food">
+
+      <h2 style="margin-top:5rem;">Mejores Restaurantes</h2>
+
+ {% for r in restaurant %}
+            <div class="food-type">
+              <div class="img-container">
+
+                <div class="img-content">
+                  <h3>{{ r.name }}</h3>
+
+
+                </div>
+              </div>
+            </div>
+           {% endfor %}
+
+      </div>
+    </section>
 </body>
 </html>
