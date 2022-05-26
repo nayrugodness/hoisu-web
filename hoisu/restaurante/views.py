@@ -27,10 +27,11 @@ class RestaurantCreateView(CreateView):
         # It should return an HttpResponse.
         form.send_email()
         return super().form_valid(form)
-
-
-
 def success(request):
-
-
     return render(request, 'app/restaurant/success.html')
+
+class RestaurantUpdateView(UpdateView):
+   model=Restaurant
+   fields="__all__"
+   template_name='app/restaurant/update.html'
+   success_url='success'
