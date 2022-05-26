@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hoisu</title>
+    {% load static %}
+    {% load pwa %}
+
+    {% progressive_web_app_meta %}
 </head>
 <body>
+{% load crispy_forms_tags %}
+    <form method="POST" enctype="multipart/form-data">
 
+        <!-- Security token -->
+        {% csrf_token %}
+
+        <!-- Using the formset -->
+        {{ form.as_p }}
+
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
