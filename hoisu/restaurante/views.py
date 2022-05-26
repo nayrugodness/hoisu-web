@@ -29,6 +29,10 @@ def create_restaurant(request):
 
     return render(request, 'app/restaurant/create.html', data)
 
+def update_restaurant(request, slug):
+
+    return render(request, 'app/restaurant/update.html')
+
 def create_reservation(request):
     data = {
         'form': ReservationForm()
