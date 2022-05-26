@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'restaurante',
     'crispy_forms',
-    'pwa',
+    'pwa'
 ]
 
 MIDDLEWARE = [
@@ -130,6 +130,23 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-PWA_APP_NAME = 'Hoisu'
-PWA_APP_DESCRIPTION = 'Reservations platform'
+PWA_APP_NAME = 'Chiki´s Waffles'
+PWA_APP_DESCRIPTION = 'Pagina de Waffles'
+PWA_APP_THEME_COLOR = '#5e462a'
+PWA_APP_BACKGROUND_COLOR = '#BB8B53'
+
+PWA_APP_ICONS = [
+    {
+        'src': '/static/logos/HoisuC&R.png',
+        'sizes': '1200x1200'
+    }
+]
+
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': '/static/logos/HoisuC&R.png',
+        'sizes': '1200x1200'
+    }
+]
+
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'serviceworker.js')

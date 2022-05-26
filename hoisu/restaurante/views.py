@@ -6,10 +6,10 @@ from .serializers import ItemMenuSerializer, GallerySerializer, EventSerializer,
 from django.views.generic import ListView, CreateView, DetailView, UpdateView
 from django.views.generic.edit import FormView
 
-class ReservationFormView(FormView):
+class ReservationFormView(CreateView):
     template_name = 'app/restaurant/create.html'
     form_class = ReservationForm
-
+    success_url = 'app/restaurant/create.html'
 
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
