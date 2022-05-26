@@ -11,8 +11,17 @@
 </head>
 <body>
 {% load crispy_forms_tags %}
-{% csrf_token %}
-{{ form | crispy }}
-<input type="submit" value="Reservar" class="btn btn-primary">
+<form method="post" style="display:flex; flex-direction:column;">
+    {% csrf_token %}
+
+    {{ form.name }}
+    {{ form.lastname }}
+    {{ form.email }}
+    {{ form.cell }}
+    {{ form.customers }}
+    {{ form.restaurant }}
+    {{ form.reservation }}
+    <button type="submit">SUBMIT</button>
+</form>
 </body>
 </html>
