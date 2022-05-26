@@ -28,3 +28,17 @@ def create_restaurant(request):
             data['form'] = formulario
 
     return render(request, 'app/restaurant/create.html', data)
+
+def create_reservation(request):
+    data = {
+        'form': ReservationForm()
+    }
+
+    if request.method == 'POST':
+        formulario = ReservationForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+        else:
+            data['form'] = formulario
+
+    return render(request, 'app/reservation/create.html', data)
