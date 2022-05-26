@@ -6,7 +6,7 @@ from .serializers import ItemMenuSerializer, GallerySerializer, EventSerializer,
 from django.views.generic import ListView, CreateView, DetailView, UpdateView
 from django.views.generic.edit import FormView
 
-class RestauranCreateView(CreateView):
+class RestaurantCreateView(CreateView):
     template_name = 'app/restaurant/create.html'
     form_class = RestaurantForm
     success_url = 'success'
