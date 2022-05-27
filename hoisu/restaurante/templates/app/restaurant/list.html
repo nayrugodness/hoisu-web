@@ -42,7 +42,12 @@
                 <div class="container">
                   <h4>
                     <b>{{ r.get_type_display }}</b>
-
+                      {% if user.is_authenticated %}
+                          <a
+                            href='/restaurante/{{ r.slug }}'
+                            class="btn btn-primary"
+                            >Ver más</a>
+                      {% endif %}
                   </h4>
                 </div>
              </div>
