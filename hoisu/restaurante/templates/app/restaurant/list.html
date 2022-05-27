@@ -38,19 +38,21 @@
           </div>
           <ul class="menu-items" style="background-color: #AC0202;">
               <li><a href="#home">Home</a></li>
-              <li><a href="{% url 'establecimientos' %}">Restaurantes</a></li>
+              <li><a href="{% url 'listar' %}">Restaurantes</a></li>
               <li><a href="#food">Categorias</a></li>
 
             {% if user.is_authenticated %}
-              <li><a href="{% url 'agregar_establecimiento' %}">Registrar mi restaurante</a></li>
+              <li><a href="{% url 'registrar' %}">Registrar mi restaurante</a></li>
               <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
               <li><a href="#">{{ user.username }}</a></li>
             {% else %}
-              <li><a href="{% url 'registro' %}">Regístrate</a></li>
+
               <li><a href="{% url 'login' %}">Inicia sesión</a></li>
             {% endif %}
           </ul>
-          <h1 class="logo">H</h1>
+          <h1 class="logo">
+            <img alt="Image placeholder" src="https://raw.githubusercontent.com/SoongCi/HoisuFront/main/src/assets/img/HoisuC%26R.png" style="width:3rem; height:3rem;">
+          </h1>
       </div>
   </nav>
 <section id="food">
@@ -59,14 +61,13 @@
 
 
       <div class="food-container container">
-          {% for r in establecimientos %}
+          {% for r in restaurant %}
             <div class="food-type">
               <div class="img-container">
-                <img src="{{ r.imagen_banner.url }}" alt="error" />
-                <div class="img-content">
-                  <h3>{{ r.nombre }}</h3>
 
-
+                  <img src="https://images.pexels.com/photos/1456262/pexels-photo-1456262.jpeg?cs=srgb&dl=pexels-adrienn-1456262.jpg&fm=jpg" alt="error" />
+                  <div class="img-content">
+                  <h3>{{ r.name }}</h3>
                 </div>
               </div>
             </div>
