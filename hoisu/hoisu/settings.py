@@ -35,6 +35,7 @@ LOGOUT_REDIRECT_URL = '/'
 INSTALLED_APPS = [
 
     'django.contrib.admin',
+    'colorfield',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
