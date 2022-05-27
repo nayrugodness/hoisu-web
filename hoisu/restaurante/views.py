@@ -59,6 +59,14 @@ def update_restaurant(request, slug):
 
     return render(request, 'app/restaurant/update.html', data)
 
+class RestaurantDetailView(DetailView):
+
+    template_name = 'app/restaurant/detail.html'
+    queryset = Restaurant.objects.all()
+    def get_object(self):
+        slug = self.kwargs.get('slug')
+        return get_object_or_404(Restaurant, slug=slug)
+
 def create_reservation(request):
     data = {
         'form': ReservationForm()
