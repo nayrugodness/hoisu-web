@@ -19,8 +19,8 @@
           referrerpolicy="no-referrer"
         />
 
-
     <link rel="stylesheet" type="text/css" href="{% static 'css/restaurant-list.css' %}">
+
 
     {% load pwa %}
 
@@ -28,51 +28,36 @@
 
 </head>
 <body>
-<nav class="navbar" style="background-color: #AC0202;">
-      <div class="navbar-container container" >
-          <input type="checkbox" name="" id="" class="hamburger">
-          <div class="hamburger-lines">
-              <span class="line line1"></span>
-              <span class="line line2"></span>
-              <span class="line line3"></span>
-          </div>
-          <ul class="menu-items" style="background-color: #AC0202;">
-              <li><a href="#home">Home</a></li>
-              <li><a href="{% url 'listar' %}">Restaurantes</a></li>
-              <li><a href="#food">Categorias</a></li>
-
-            {% if user.is_authenticated %}
-              <li><a href="{% url 'registrar' %}">Registrar mi restaurante</a></li>
-              <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
-              <li><a href="#">{{ user.username }}</a></li>
-            {% else %}
-
-              <li><a href="{% url 'login' %}">Inicia sesión</a></li>
-            {% endif %}
-          </ul>
-          <h1 class="logo">
-            <img alt="Image placeholder" src="https://raw.githubusercontent.com/SoongCi/HoisuFront/main/src/assets/img/HoisuC%26R.png" style="width:3rem; height:3rem;">
-          </h1>
+ <div class="container">
+    <div id="slide-left-container">
+      <div class="slide-left">
       </div>
-  </nav>
-<section id="food">
-
-      <h2 style="margin-top:5rem;">Mejores Restaurantes</h2>
-
-
-      <div class="food-container container">
-          {% for r in restaurant %}
-            <div class="food-type">
-              <div class="img-container">
-
-                  <img src="https://images.pexels.com/photos/1456262/pexels-photo-1456262.jpeg?cs=srgb&dl=pexels-adrienn-1456262.jpg&fm=jpg" alt="error" />
-                  <div class="img-content">
-                  <h3>{{ r.name }}</h3>
+    </div>
+    <div id="cards-container">
+      <div class="cards">
+        {% for r in restaurant %}
+          {% if r.type == 'Gourmet' %}
+             <div class="card">
+                <img src="http://via.placeholder.com/220x220" alt="Architecture" style="width:100%">
+                <div class="container">
+                  <h4>
+                    <b>{{ r.get_type_display }}</b>
+                  </h4>
                 </div>
-              </div>
-            </div>
-           {% endfor %}
+             </div>
+          {% endif %}
+        {% endfor %}
       </div>
-    </section>
+    </div>
+
+    <div id="slide-right-container">
+      <div class="slide-right">
+      </div>
+    </div>
+
+  </div>
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+  <script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>
