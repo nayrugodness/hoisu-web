@@ -1,10 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hoisu C&R</title>
+
+    {% load static %}
+
+    <link rel="icon" type="image/png" href="{% static 'app/images/HoisuC&R.png' %}">
+
+    {% block css %}
+    {% endblock %}
+    <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/restaurant-list.css' %}">
+
+
+    {% load pwa %}
+
+    {% progressive_web_app_meta %}
+
 </head>
 <body>
+ <div class="container">
+    <div id="slide-left-container">
+      <div class="slide-left">
+      </div>
+    </div>
+    <div id="cards-container">
+      <div class="cards">
+        {% for r in restaurant %}
+          {% if r.type == 'Gourmet' %}
+             <div class="card">
+                <img src="http://via.placeholder.com/220x220" alt="Architecture" style="width:100%">
+                <div class="container">
+                  <h4>
+                    <b>{{ r.get_type_display }}</b>
+                  </h4>
+                </div>
+             </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
 
+    <div id="slide-right-container">
+      <div class="slide-right">
+      </div>
+    </div>
+
+  </div>
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+  <script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>

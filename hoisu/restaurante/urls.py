@@ -4,8 +4,10 @@ from . import models
 from rest_framework import routers
 
 urlpatterns = [
-    path('registrar-restaurante/', views.RestaurantCreateView.as_view(), name='registrar-restaurante'),
-    path('reservar', views.ReservationCreateView.as_view(), name='reservar'),
-    path('modificar-restaurante', views.RestaurantUpdateView.as_view(), name='modificar-restaurante'),
-    path('success', views.success, name='success'),
+    path('', views.index, name='index'),
+    path('registrar/', views.create_restaurant, name='registrar'),
+    path('modificar-restaurante/<slug:slug>', views.update_restaurant, name='modificar-restaurante'),
+    path('modificar-reservacion/<slug:slug>', views.update_reservation, name='modificar-reservación'),
+    path('reservar/', views.create_reservation, name='reservar'),
+    path('listar/', views.list_restaurants, name='listar'),
 ]
