@@ -28,35 +28,35 @@
 
 </head>
 <body>
+ <h2 style="font-size:3rem; color: #fff; margin-left:3rem;">Gourmet Restaurants</h2>
  <div class="container">
-    <div id="slide-left-container">
+   <div id="slide-left-container">
       <div class="slide-left">
       </div>
     </div>
     <div id="cards-container">
       <div class="cards">
+
         {% for r in restaurant %}
           {% if r.type == 'Gourmet' %}
-             <div class="card">
-                <img src="http://via.placeholder.com/220x220" alt="Architecture" style="width:100%">
-                <div class="container">
-                  <h4>
-                    <b>{{ r.get_type_display }}</b>
-                      {% if user.is_authenticated %}
-                          <a
-                            href='/restaurante/{{ r.slug }}'
-                            class="btn btn-primary"
-                            >Ver más</a>
-                      {% endif %}
-                  </h4>
-                </div>
-             </div>
+          <div class="card" style="width:200px; height:300px; display: flex; flex-direction: column; text-align:center;">
+              <a href="/restaurante/{{ r.slug }}" style="text-decoration:none; color: #AC0202; text-align:center;">
+                  <img src="{{ r.principal_image.url }}" alt="Architecture" style="width:200px; height:220px; object-fit:cover;">
+                  <div class="container">
+                      <h2>
+                          {{ r.name }}
+                      </h2>
+                      <b></b>
+                  </div>
+              </a>
+          </div>
+
           {% endif %}
         {% endfor %}
       </div>
     </div>
 
-    <div id="slide-right-container">
+   <div id="slide-right-container">
       <div class="slide-right">
       </div>
     </div>
