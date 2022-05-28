@@ -6,6 +6,7 @@ from rest_framework import viewsets
 from .serializers import ItemMenuSerializer, GallerySerializer, EventSerializer, RestaurantSerializer, ReservationSerializer
 from django.views.generic import ListView, CreateView, DetailView, UpdateView
 from django.views.generic.edit import FormView
+from django.views.generic.edit import FormMixin
 
 def index(request):
     restaurant = Restaurant.objects.all()
