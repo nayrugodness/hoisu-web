@@ -168,7 +168,7 @@
                 </div>
                 <hr class="my-4">
                 <p>{{ object.description }}</p>
-                <a href="#!" class="btn btn-info">Reservar</a>
+                <a href="#" class="btn btn-info">Reservar</a>
               </div>
             </div>
           </div>
@@ -279,6 +279,18 @@
                 </div>
               </form>-->
               {% endblock %}
+              {% load crispy_forms_tags %}
+                  <form method="POST" enctype="multipart/form-data">
+
+                      <!-- Security token -->
+                      {% csrf_token %}
+
+                      <!-- Using the formset -->
+                      {{ form.as_p }}
+                      {{ form.errors }}
+                      {{ form.non_field_errors }}
+                      <input type="submit" value="Submit">
+                  </form>
             </div>
           </div>
         </div>

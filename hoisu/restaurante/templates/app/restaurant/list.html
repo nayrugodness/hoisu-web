@@ -41,7 +41,9 @@
           {% if r.type == 'Gourmet' %}
           <div class="card" style="width:200px; height:300px; display: flex; flex-direction: column; text-align:center;">
               <a href="/restaurante/{{ r.slug }}" style="text-decoration:none; color: #AC0202; text-align:center;">
-                  <img src="{{ r.principal_image.url }}" alt="Architecture" style="width:200px; height:220px; object-fit:cover;">
+                  {% if r.principal_image  %}
+                    <img src="{{ r.principal_image.url }}" alt="Architecture" style="width:200px; height:220px; object-fit:cover;">
+                  {% endif %}
                   <div class="container">
                       <h2>
                           {{ r.name }}
