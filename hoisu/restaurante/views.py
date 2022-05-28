@@ -60,7 +60,7 @@ def update_restaurant(request, slug):
 
     return render(request, 'app/restaurant/update.html', data)
 
-class RestaurantDetailView(DetailView):
+class RestaurantDetailView(FormMixin, DetailView):
 
     template_name = 'app/restaurant/detail.html'
     queryset = Restaurant.objects.all()
