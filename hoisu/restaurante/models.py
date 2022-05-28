@@ -89,5 +89,5 @@ class Reservation(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.PROTECT)
     created = models.DateField(auto_now_add=True)
     edited = models.DateField(auto_now=True)
-    reservation = models.DateField()
+    reservation = models.DateTimeField()
 
