@@ -42,7 +42,9 @@
           <div class="card" style="width:200px; height:300px; display: flex; flex-direction: column; text-align:center;">
               <a href="/restaurante/{{ r.slug }}" style="text-decoration:none; color: #AC0202; text-align:center;">
                   {% if r.principal_image  %}
-                    <img src="{{ r.principal_image.url }}" alt="Architecture" style="width:200px; height:220px; object-fit:cover;">
+                    <img src="{{ r.principal_image.url }}" alt="Restaurant" style="width:200px; height:220px; object-fit:cover;">
+                  {% else %}
+                    <img src="https://www.pexels.com/photo/wine-in-clear-glass-near-food-on-plate-on-table-1861785/" alt="Restaurant" style="width:200px; height:220px; object-fit:cover;">
                   {% endif %}
                   <div class="container">
                       <h2>
