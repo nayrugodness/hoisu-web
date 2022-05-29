@@ -31,3 +31,6 @@ class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
         fields = '__all__'
+        widgets = {
+            'reservation': forms.SelectDateWidget()
+        }

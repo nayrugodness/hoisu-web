@@ -97,22 +97,18 @@ class RestaurantDetailView(FormMixin, DetailView):
         return super(RestaurantDetailView, self).form_valid(form)
 
 def create_reservation(request, slug):
-
-    reservation = get_object_or_404(Restaurant, slug=slug)
+    restaurant = get_object_or_404(Restaurant, slug=slug)
 
     data = {
-        'form': ReservationForm(instance=reservation)
+        'form': ReservationForm()
     }
 
     if request.method == 'POST':
-
-        formulario = ReservationForm(data=request.POST, instance=reservation, files=request.FILES)
-
+        formulario = ReservationForm(data=request.POST)
         if formulario.is_valid():
-
             formulario.save()
-
-        data["form"] = formulario
+        else:
+            data['form'] = formulario
 
     return render(request, 'app/reservation/create.html', data)
 
