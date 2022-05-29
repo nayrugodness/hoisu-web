@@ -19,7 +19,7 @@ body {
   padding: 4px 16px;
 }
 
-#cards-container {
+.cards-container {
   overflow: hidden;
   margin: 20px;
 }
@@ -54,13 +54,13 @@ body {
   display: inline-block;
 }
 
-#slide-left-container,
-#slide-right-container {
+.slide-left-container,
+.slide-right-container {
   display: none;
 }
 
-#slide-left-container.active,
-#slide-right-container.active {
+.slide-left-container.active,
+.slide-right-container.active {
   display: block;
   cursor: pointer;
 }
