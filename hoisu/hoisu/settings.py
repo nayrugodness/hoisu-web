@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'restaurante',
     'crispy_forms',
-    'pwa'
+    'pwa',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
