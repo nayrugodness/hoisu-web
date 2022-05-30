@@ -61,8 +61,8 @@ def update_restaurant(request, slug):
 
     return render(request, 'app/restaurant/update.html', data)
 
-def list_reservations(request):
-    reservation = Reservation.objects.all()
+def list_reservations(request, id):
+    reservation = Reservation.objects.filter(restaurant=id)
 
     data = {
         'reservation': reservation

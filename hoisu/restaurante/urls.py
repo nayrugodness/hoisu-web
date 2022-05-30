@@ -11,5 +11,5 @@ urlpatterns = [
     path('modificar-reservacion/<slug:slug>', views.update_reservation, name='modificar-reservación'),
     path('reservar/<slug:slug>', views.create_reservation, name='reservar'),
     path('listar/', views.list_restaurants, name='listar'),
-    path('listar-reservaciones/', views.list_reservations, name='listar-restaurantes'),
+    path('listar-reservaciones/<id>', views.list_reservations, name='reservaciones'),
 ]
