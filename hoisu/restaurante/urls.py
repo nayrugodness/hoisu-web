@@ -15,6 +15,4 @@ urlpatterns = [
     path('reservar/<slug:slug>', views.create_reservation, name='reservar'),
     path('listar/', views.list_restaurants, name='listar'),
     path('listar-reservaciones/<id>', views.list_reservations, name='reservaciones'),
-    path('accounts/login/', LoginView.as_view(),
-         {'template_name': 'registration/login.html', 'authentication_form': LoginForm}),
 ]
