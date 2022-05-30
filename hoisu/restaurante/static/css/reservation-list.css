@@ -49,7 +49,7 @@
 
 .rwd-table th,
 .rwd-table td {
-  text-align: left;
+  text-align: center;
 }
 
 .rwd-table {
@@ -59,7 +59,7 @@
 }
 
 .rwd-table tr {
-  border-color: #bfbfbf;
+  border-color: #fff;
 }
 
 .rwd-table th,
