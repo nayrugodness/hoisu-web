@@ -93,6 +93,23 @@
 
         {% for r in restaurant %}
             {% if r.type == 'Gourmet' %}
+                <a href="/restaurante/{{ r.slug }}" style="text-decoration: none;">
+                    <div class="card 1" style="">
+                        {% if r.principal_image %}
+                          <div class="card_image" style="">
+                              <img src="{{ r.principal_image.url }}" />
+                          </div>
+                        {% else %}
+                          <div class="card_image" style="">
+                              <img src="https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                          </div>
+                        {% endif %}
+                          <div class="card_title title-white">
+                            <p style="color: white;">{{ r.name }}</p>
+                              <p style="font-size:1rem; margin-top: 0.3rem;"><i>{{ r.get_city_display }}</i></p>
+                          </div>
+                    </div>
+                </a>
             {% endif %}
         {% endfor %}
     </div>
@@ -101,7 +118,23 @@
 
         {% for r in restaurant %}
             {% if r.type == 'Comida rápida' %}
-
+                <a href="/restaurante/{{ r.slug }}" style="text-decoration: none;">
+                    <div class="card 1" style="">
+                        {% if r.principal_image %}
+                          <div class="card_image" style="">
+                              <img src="{{ r.principal_image.url }}" />
+                          </div>
+                        {% else %}
+                          <div class="card_image" style="">
+                              <img src="https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                          </div>
+                        {% endif %}
+                          <div class="card_title title-white">
+                            <p style="color: white;">{{ r.name }}</p>
+                              <p style="font-size:1rem; margin-top: 0.3rem;"><i>{{ r.get_city_display }}</i></p>
+                          </div>
+                    </div>
+                </a>
             {% endif %}
         {% endfor %}
     </div>
@@ -110,7 +143,23 @@
 
         {% for r in restaurant %}
             {% if r.type == 'De autor' %}
-
+                <a href="/restaurante/{{ r.slug }}" style="text-decoration: none;">
+                    <div class="card 1" style="">
+                        {% if r.principal_image %}
+                          <div class="card_image" style="">
+                              <img src="{{ r.principal_image.url }}" />
+                          </div>
+                        {% else %}
+                          <div class="card_image" style="">
+                              <img src="https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                          </div>
+                        {% endif %}
+                          <div class="card_title title-white">
+                            <p style="color: white;">{{ r.name }}</p>
+                              <p style="font-size:1rem; margin-top: 0.3rem;"><i>{{ r.get_city_display }}</i></p>
+                          </div>
+                    </div>
+                </a>
             {% endif %}
         {% endfor %}
     </div>
@@ -119,7 +168,23 @@
 
         {% for r in restaurant %}
             {% if r.type == 'Temático' %}
-
+                <a href="/restaurante/{{ r.slug }}" style="text-decoration: none;">
+                    <div class="card 1" style="">
+                        {% if r.principal_image %}
+                          <div class="card_image" style="">
+                              <img src="{{ r.principal_image.url }}" />
+                          </div>
+                        {% else %}
+                          <div class="card_image" style="">
+                              <img src="https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                          </div>
+                        {% endif %}
+                          <div class="card_title title-white">
+                            <p style="color: white;">{{ r.name }}</p>
+                              <p style="font-size:1rem; margin-top: 0.3rem;"><i>{{ r.get_city_display }}</i></p>
+                          </div>
+                    </div>
+                </a>
             {% endif %}
         {% endfor %}
     </div>
