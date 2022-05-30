@@ -26,6 +26,8 @@ class RestaurantForm(forms.ModelForm):
         model = Restaurant
         fields = '__all__'
 
+
+
 class ReservationForm(forms.ModelForm):
 
     class Meta:
