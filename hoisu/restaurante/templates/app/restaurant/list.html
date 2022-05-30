@@ -8,7 +8,8 @@
     {% load static %}
 
     <link rel="icon" type="image/png" href="{% static 'app/images/HoisuC&R.png' %}">
-
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     {% block css %}
     {% endblock %}
     <link
@@ -28,61 +29,191 @@
 
 </head>
 <body>
-<!-- Block gourmet restaurants -->
- <h2 style="font-size:3rem; color: #fff; margin-left:3rem;">Gourmet Restaurants</h2>
- <div class="container">
-   <div class="slide-left-container">
-      <div class="slide-left">
-      </div>
-    </div>
-    <div class="cards-container">
-      <div class="cards">
+<!--- block buffet --->
+    <h2 style="text-align:center; color: #AC0202; font-size: 2rem;">Restaurantes tipo Buffet</h2>
+   <main style="margin: 3rem;">
+        <section class="thumbSection">
+            <div class="thumbTiles swiper-container">
+                <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            {% for r in restaurant %}
+                            {% if r.type == 'Buffet' %}
+                            <div class="swiper-slide" style="width: 20rem; height: 18rem; background-color: #fff; margin: 1rem; border-radius: 4px;" >
+                                <a class="thumbTile" href="/restaurante/{{ r.slug }}">
 
-        {% for r in restaurant %}
-          {% if r.type == 'Gourmet' %}
-          <div class="card" style="width:200px; height:300px; display: flex; flex-direction: column; text-align:center;">
-              <a href="/restaurante/{{ r.slug }}" style="text-decoration:none; color: #AC0202; text-align:center;">
-                  {% if r.principal_image  %}
-                    <img src="{{ r.principal_image.url }}" alt="Restaurant" style="width:200px; height:220px; object-fit:cover;">
-                  {% else %}
-                    <img src="https://images.pexels.com/photos/1861785/pexels-photo-1861785.jpeg?cs=srgb&dl=pexels-helena-lopes-1861785.jpg&fm=jpg" alt="Restaurant" style="width:200px; height:220px; object-fit:cover;">
-                  {% endif %}
-                  <div class="container">
-                      <h2>
-                          {{ r.name }}
-                      </h2>
-                      <b></b>
-                  </div>
-              </a>
-          </div>
+                                    {% if r.principal_image %}
+                                    <img class="thumbTile__image"
+                                        src="{{ r.principal_image.url }}"
+                                        alt="{{ r.name }}" style="width: 100%; height: 16rem; object-fit: cover; ">
+                                    {% else %}
+                                    <img class="thumbTile__image"
+                                        src="https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                        alt="{{ r.name }}" style="width: 100%; height: 16rem; object-fit: cover;">
+                                    {% endif %}
+                                    <h2 style="text-align: center; text-decoration: none; color: #AC0202;">{{ r.name }}</h2>
+                                </a>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
 
-          {% endif %}
-        {% endfor %}
-      </div>
-    </div>
+            </div>
+        </section>
+    </main>
+<!--- end block buffet -->
+<!--- block gourmet --->
+    <main>
+        <section class="thumbSection">
+            <div class="thumbTiles swiper-container">
+                <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            {% for r in restaurant %}
+                            {% if r.type == 'Gourmet' %}
+                            <div class="swiper-slide" style="width: 20rem; height: 18rem; background-color: #AC0202; margin: 1rem; border-radius: 4px;" >
+                                <a class="thumbTile" href="/restaurante/{{ r.slug }}">
 
-   <div class="slide-right-container">
-      <div class="slide-right">
-      </div>
-    </div>
+                                    {% if r.principal_image %}
+                                    <img class="thumbTile__image"
+                                        src="{{ r.principal_image.url }}"
+                                        alt="{{ r.name }}" style="width: 100%; height: 16rem; object-fit: cover; ">
+                                    {% else %}
+                                    <img class="thumbTile__image"
+                                        src="https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                        alt="{{ r.name }}" style="width: 100%; height: 16rem; object-fit: cover;">
+                                    {% endif %}
+                                    <h2 style="text-align: center; text-decoration: none; color: white;">{{ r.name }}</h2>
+                                </a>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
 
-  </div>
- <!-- End block Gourmet restaurants --->
-     <!-- Block Buffet restaurants -->
+            </div>
+        </section>
+    </main>
+<!--- end block gourmet -->
 
-     <!-- End block buffet restaurants -->
+<!--- block Comida rapida --->
+    <main>
+        <section class="thumbSection">
+            <div class="thumbTiles swiper-container">
+                <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            {% for r in restaurant %}
+                            {% if r.type == 'Comida rapida' %}
+                            <div class="swiper-slide" style="width: 20rem; height: 16rem; " >
+                                <a class="thumbTile" href="/restaurante/{{ r.slug }}">
+                                    {% if r.principal_image %}
+                                    <img class="thumbTile__image"
+                                        src="{{ r.principal_image.url }}"
+                                        alt="{{ r.name }}" style="width: 20rem; height: 16rem; object-fit: cover; ">
+                                    {% else %}
+                                    <img class="thumbTile__image"
+                                        src="https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                        alt="{{ r.name }}" style="width: 20rem; height: 16rem; object-fit: cover;">
+                                    {% endif %}
+                                </a>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
 
-    <!-- Block Comida rápida -->
+            </div>
+        </section>
+    </main>
+<!--- end block comida rapida -->
 
-    <!-- End block Comida rapida--->
-    <!-- Block De autor -->
+<!-- block De autor --->
+<main>
+        <section class="thumbSection">
+            <div class="thumbTiles swiper-container">
+                <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            {% for r in restaurant %}
+                            {% if r.type == 'De autor' %}
+                            <div class="swiper-slide" style="width: 20rem; height: 18rem; background-color: #AC0202; margin: 1rem; border-radius: 4px;" >
+                                <a class="thumbTile" href="/restaurante/{{ r.slug }}">
 
-    <!--End block de autor -->
-    <!--Block Temático -->
+                                    {% if r.principal_image %}
+                                    <img class="thumbTile__image"
+                                        src="{{ r.principal_image.url }}"
+                                        alt="{{ r.name }}" style="width: 100%; height: 16rem; object-fit: cover; ">
+                                    {% else %}
+                                    <img class="thumbTile__image"
+                                        src="https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                        alt="{{ r.name }}" style="width: 100%; height: 16rem; object-fit: cover;">
+                                    {% endif %}
+                                    <h2 style="text-align: center; text-decoration: none; color: white;">{{ r.name }}</h2>
+                                </a>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
 
-    <!--End block temático -->
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-  <script src="{% static 'js/app.js' %}"></script>
+            </div>
+        </section>
+    </main>
+<!-- End block de autor -->
+
+<!--- block temático --->
+<main>
+        <section class="thumbSection">
+            <div class="thumbTiles swiper-container">
+                <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            {% for r in restaurant %}
+                            {% if r.type == 'Tematico' %}
+                            <div class="swiper-slide" style="width: 20rem; height: 18rem; background-color: #AC0202; margin: 1rem; border-radius: 4px;" >
+                                <a class="thumbTile" href="/restaurante/{{ r.slug }}">
+
+                                    {% if r.principal_image %}
+                                    <img class="thumbTile__image"
+                                        src="{{ r.principal_image.url }}"
+                                        alt="{{ r.name }}" style="width: 100%; height: 16rem; object-fit: cover; ">
+                                    {% else %}
+                                    <img class="thumbTile__image"
+                                        src="https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                        alt="{{ r.name }}" style="width: 100%; height: 16rem; object-fit: cover;">
+                                    {% endif %}
+                                    <h2 style="text-align: center; text-decoration: none; color: white;">{{ r.name }}</h2>
+                                </a>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+
+            </div>
+        </section>
+    </main>
+<!-- end block temático --->
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            // Optional parameters
+            spaceBetween: 5,
+            slidesPerView: 2,
+            loop: true,
+            freeMode: true,
+            loopAdditionalSlides: 5,
+            speed: 500,
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                // when window width is >= 640px
+                640: {
+                    slidesPerView: 5,
+                    slidesPerGroup: 5,
+                    freeMode: false
+                }
+            }
+        })
+    </script>
 </body>
 </html>
