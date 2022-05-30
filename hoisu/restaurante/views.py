@@ -8,6 +8,8 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView
 from django.views.generic.edit import FormView
 from django.views.generic.edit import FormMixin
 from django.urls import reverse
+from django.contrib import messages
+from .forms import RegisterForm
 
 def index(request):
     restaurant = Restaurant.objects.all()
