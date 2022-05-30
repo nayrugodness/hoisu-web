@@ -23,6 +23,33 @@
     {% progressive_web_app_meta %}
 </head>
 <body>
+<style>
+
+  .btn-send{
+      width: 45%;
+      height: 3rem;
+      background-color: #0db523;
+      color: white;
+      border: transparent;
+      border-radius: 4px;
+      font-size: 1.2rem;
+  }
+  .btn-send:hover{
+      background-color: #0d801c;
+  }
+
+  .btn-reset{
+      width: 45%;
+      height: 3rem;
+      background-color: #c40404;
+      color: white;
+      border: transparent;
+      border-radius: 4px;
+  }
+  .btn-reset:hover{
+      background-color: #bd0404;
+  }
+</style>
 {% load widget_tweaks %}
 {% load crispy_forms_tags %}
   <div class="main-content">
@@ -125,7 +152,11 @@
                         </div>
                       </div>
                     {% endfor %}
-                    <input type="submit">
+                    <div style="display:flex; flex-direction: row; flex-wrap: nowrap; width: 100%; justify-content: space-between;">
+                       <input type="reset" class="btn-reset" value="Borrar">
+                       <input type="submit" class="btn-send" value="Registrar mi restaurante">
+                    </div>
+
                   </div>
                 </div>
               </form>
