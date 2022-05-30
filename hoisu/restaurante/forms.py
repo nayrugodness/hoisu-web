@@ -21,10 +21,10 @@ class EventForm(forms.ModelForm):
         fields = '__all__'
 
 class RestaurantForm(forms.ModelForm):
-    name = forms.CharField(widget=forms.TextInput(attrs={"class": "form-control"}))
-    parking = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class":"checkbox", "class": "col-lg-6"}))
-    credit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox", "class": "col-lg-6"}))
-    debit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox", "class": "col-lg-6"}))
+
+    parking = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class":"checkbox"}))
+    credit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox"}))
+    debit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox"}))
     class Meta:
         model = Restaurant
         fields = '__all__'
