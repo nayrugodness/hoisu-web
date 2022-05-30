@@ -95,8 +95,8 @@
           <div class="col-lg-7 col-md-10">
             <h1 class="display-2 text-white">{{ object.name }}</h1>
             <p class="text-white mt-0 mb-5">{{ object.description }}</p>
-            <a href="/reservar/{{ r.slug }}" class="btn btn-info">Reservar</a>
-            <a href="/listar-reservaciones/{{ r.id }}" class="btn btn-info">Ver reservaciones</a>
+            <a href="/reservar/{{ object.slug }}" class="btn btn-info">Reservar</a>
+            <a href="/listar-reservaciones/{{ object.id }}" class="btn btn-info">Ver reservaciones {{ object.slug }}</a>
           </div>
         </div>
       </div>
