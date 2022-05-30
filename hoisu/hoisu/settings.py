@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'pwa',
     'widget_tweaks',
 ]
-
+CRISPY_TEMPLATE_PACK = 'boostrap4'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
