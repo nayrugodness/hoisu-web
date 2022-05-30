@@ -21,7 +21,9 @@ class EventForm(forms.ModelForm):
         fields = '__all__'
 
 class RestaurantForm(forms.ModelForm):
-
+    parking = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class":"checkbox", "class": "col-lg-6"}))
+    credit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox", "class": "col-lg-6"}))
+    debit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox", "class": "col-lg-6"}))
     class Meta:
         model = Restaurant
         fields = '__all__'
@@ -29,6 +31,7 @@ class RestaurantForm(forms.ModelForm):
 
 
 class ReservationForm(forms.ModelForm):
+
 
     class Meta:
         model = Reservation
