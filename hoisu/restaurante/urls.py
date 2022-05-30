@@ -4,6 +4,8 @@ from . import views
 from . import models
 from rest_framework import routers
 
+from .forms import LoginForm
+
 urlpatterns = [
     path('', views.index, name='index'),
     path('registrar/', views.create_restaurant, name='registrar'),
@@ -14,5 +16,4 @@ urlpatterns = [
     path('listar/', views.list_restaurants, name='listar'),
     path('listar-reservaciones/<id>', views.list_reservations, name='reservaciones'),
     path('accounts/login/', LoginView.as_view('template_name':'registration/login.html','form_class':LoginForm}),
-    path('login/', LoginView.as_view('template_name':'registration/login.html','form_class':LoginForm}),
 ]
