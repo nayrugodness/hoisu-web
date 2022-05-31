@@ -23,12 +23,7 @@ class RestaurantForm(forms.ModelForm):
         help_text='Número telefónico',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Número telefónico'}),
     )
-    city = forms.ChoiceField(
 
-        required=True,
-        help_text='Ciudad',
-
-    )
     departamento = forms.CharField(
         max_length=100,
         required=True,
