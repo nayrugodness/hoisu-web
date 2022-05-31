@@ -5,7 +5,7 @@ from .models import Restaurant, Users, Reservation
 from django.db.models import fields
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-
+from django.contrib.auth.forms import AuthenticationForm, UsernameField
 
 
 
