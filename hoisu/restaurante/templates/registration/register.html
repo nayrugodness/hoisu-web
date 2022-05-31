@@ -27,30 +27,37 @@
     {% progressive_web_app_meta %}
 
 </head>
-<body style="display: flex; flex-direction: column; ">
-    <form class="login-form" method="POST" style="width: 32rem; align-self:center; font-size: 2rem;">
+<body style="display: flex; flex-direction: column;
+    height:100vh;
+    background: radial-gradient(circle, rgba(3,0,0,1) 0%, rgba(3,3,3,0) 100%),
+    url('https://images.pexels.com/photos/1833349/pexels-photo-1833349.jpeg?cs=srgb&dl=pexels-valeria-boltneva-1833349.jpg&fm=jpg');
+    background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <form class="login-form" method="POST" style="width: 40rem; padding: 3rem;
+     align-self:center; font-size: 1.3rem; margin-top: 6rem;
+    border-radius: 4px; background-color: white; height: 60vh;">
+        <h2 style="font-size: 2rem; color: #AC0202; text-align:center;">Registrarme </h2>
     {% csrf_token %}
         <div class="row">
         <div class="col-md-12">
-        {% if form.errors %}
-        {% for field in form %}
-        {% for error in field.errors %}
-        <div class="alert alert-danger">
-        <strong>{{ error|escape }}</strong>
-        <strong>{{ field|escape }}</strong>
-        </div>
-        {% endfor %}
-        {% endfor %}
-        {% for error in form.non_field_errors %}
-        <div class="alert alert-danger">
-        <strong>{{ error|escape }}</strong>
-        </div>
-        {% endfor %}
-        {% endif %}
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                        <strong>{{ field|escape }}</strong>
+                        </div>
+                        {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                        <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
         </div>
         <div class="col-md-6">
         <div class="form-group position-relative">
-        <label>First name <span class="text-danger">*</span></label>
+        <label>Nombres<span class=""></span></label>
         {{form.first_name}}
         </div>
         {% if form.first_name.errors %}
@@ -63,7 +70,7 @@
         </div>
         <div class="col-md-6">
         <div class="form-group position-relative">
-        <label>Last name <span class="text-danger">*</span></label>
+        <label>Apellidos<span class=""></span></label>
         {{form.last_name}}
         </div>
         {% if form.last_name.errors %}
@@ -76,7 +83,7 @@
         </div>
         <div class="col-md-12">
         <div class="form-group position-relative">
-        <label>Your Email <span class="text-danger">*</span></label>
+        <label>Correo electrónico<span class=""></span></label>
         {{form.email}}
         </div>
         {% if form.email.errors %}
@@ -89,7 +96,7 @@
         </div>
         <div class="col-md-12">
         <div class="form-group position-relative">
-        <label>Username <span class="text-danger">*</span></label>
+        <label>Nombre de usuario<span class=""></span></label>
         {{form.username}}
         </div>
         {% if form.username.errors %}
@@ -102,7 +109,7 @@
         </div>
         <div class="col-md-12">
         <div class="form-group position-relative">
-        <label>Password <span class="text-danger">*</span></label>
+        <label>Contraseña<span class="text-danger"></span></label>
         {{form.password1}}
         </div>
         {% if form.password1.errors %}
@@ -115,7 +122,7 @@
         </div>
         <div class="col-md-12">
         <div class="form-group position-relative">
-        <label>Confirm Password <span class="text-danger">*</span></label>
+        <label>Confirmar contraseña<span class=""></span></label>
         {{form.password2}}
         </div>
         {% if form.password2.errors %}
@@ -142,10 +149,10 @@
             </div>
         </div>
         <div class="col-md-12">
-            <button class="btn btn-primary w-100" type="submit" >Register</button>
+            <button class="btn btn-primary w-100" type="submit" style="padding: 0.5rem;">Registrarme</button>
         </div>
         <div class="mx-auto">
-            <p class="mb-0 mt-3"><small class="text-dark mr-2">Already have an account ?</small> <a href="{% url 'login' %}" class="text-dark font-weight-bold">Sign in</a></p>
+            <p class="mb-0 mt-3"><small class="text-dark mr-2">¿Ya tienes una cuenta?</small> <a href="{% url 'login' %}" class="text-dark" style="float: right;">Ingresar</a></p>
         </div>
         </div>
     </form>

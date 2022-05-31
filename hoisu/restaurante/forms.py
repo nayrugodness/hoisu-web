@@ -49,36 +49,36 @@ class RegisterForm(UserCreationForm):
     email = forms.EmailField(
         max_length=100,
         required=True,
-        help_text='Enter Email Address',
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
+        help_text='Ingresa tu correo electrónico',
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Correo electrónico'}),
     )
     first_name = forms.CharField(
         max_length=100,
         required=True,
-        help_text='Enter First Name',
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}),
+        help_text='Escribe tu nombre',
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre'}),
     )
     last_name = forms.CharField(
         max_length=100,
         required=True,
-        help_text='Enter Last Name',
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}),
+        help_text='Escribe tus apellidos',
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Apellidos'}),
     )
     username = forms.CharField(
         max_length=200,
         required=True,
-        help_text='Enter Username',
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}),
+        help_text='Escribe tu nombre de usuario',
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre de usuario'}),
     )
     password1 = forms.CharField(
-        help_text='Enter Password',
+        help_text='Ingresa tu contraseña',
         required=True,
-        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}),
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Contraseña'}),
     )
     password2 = forms.CharField(
         required=True,
-        help_text='Enter Password Again',
-        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password Again'}),
+        help_text='Confirma tu contraseña',
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirmar contraseña'}),
     )
     check = forms.BooleanField(required=True)
 
