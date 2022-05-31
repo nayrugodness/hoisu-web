@@ -18,12 +18,14 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from hoisu.restaurante.forms import UserLoginForm
+from django.contrib.auth import views
 
 urlpatterns = [
     path('', include('restaurante.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', include('pwa.urls')),
+
 ]
 
 if settings.DEBUG:
