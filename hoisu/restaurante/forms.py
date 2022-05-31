@@ -69,7 +69,8 @@ class RestaurantForm(forms.ModelForm):
         help_text='Correo electrónico',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'restaurante@gmail.com'}),
     )
-    description = forms.TextField(
+    description = forms.CharField(
+        max_length=1000,
         required=True,
         help_text='Descripción del restaurante',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'lorem ipsum dolor sept...'}),
