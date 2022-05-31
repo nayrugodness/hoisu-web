@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from .models import Restaurant, Reservation
-from .forms import  GalleryForm, EventForm, RestaurantForm, ReservationForm
+from .forms import RestaurantForm, ReservationForm
 from rest_framework import viewsets
 from .serializers import  RestaurantSerializer, \
     ReservationSerializer
