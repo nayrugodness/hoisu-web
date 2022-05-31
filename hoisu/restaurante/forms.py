@@ -53,7 +53,14 @@ class RestaurantForm(forms.ModelForm):
         max_length=100,
         required=True,
         help_text='Precio mínimo',
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': '10,000'}),
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: 10,000'}),
+    )
+
+    price_max = forms.CharField(
+        max_length=100,
+        required=True,
+        help_text='Precio máximo',
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: 60,000'}),
     )
     parking = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class":"checkbox"}))
     credit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox"}))
