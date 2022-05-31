@@ -5,22 +5,6 @@ from .models import Restaurant, Users, Reservation
 from django.db.models import fields
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.forms import AuthenticationForm, UsernameField
-
-
-class UserLoginForm(AuthenticationForm):
-    def __init__(self, *args, **kwargs):
-        super(UserLoginForm, self).__init__(*args, **kwargs)
-
-    username = UsernameField(widget=forms.TextInput(
-        attrs={'class': 'form-control', 'placeholder': '', 'id': 'hello'}))
-    password = forms.CharField(widget=forms.PasswordInput(
-        attrs={
-            'class': 'form-control',
-            'placeholder': '',
-            'id': 'hi',
-        }
-))
 
 
 class RestaurantForm(forms.ModelForm):
@@ -75,7 +59,7 @@ class RestaurantForm(forms.ModelForm):
         help_text='Dirección ',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: Km 7 vía Caimo'}),
     )
-    parking = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class":"checkbox"}))
+    parking = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox"}))
     credit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox"}))
     debit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox"}))
 
@@ -84,16 +68,14 @@ class RestaurantForm(forms.ModelForm):
         fields = '__all__'
 
 
-
 class ReservationForm(forms.ModelForm):
-
-
     class Meta:
         model = Reservation
         fields = '__all__'
         widgets = {
             'reservation': forms.SelectDateWidget()
         }
+
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(
