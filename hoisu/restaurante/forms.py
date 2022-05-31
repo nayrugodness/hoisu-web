@@ -31,6 +31,25 @@ class RestaurantForm(forms.ModelForm):
         help_text='Nombre del restaurante',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre del restaurante'}),
     )
+    cell = forms.CharField(
+        max_length=100,
+        required=True,
+        help_text='Número telefónico',
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Número telefónico'}),
+    )
+    city = forms.ChoiceField(
+        max_length=100,
+        required=True,
+        help_text='Ciudad',
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ciudad'}),
+    )
+    departamento = forms.CharField(
+        max_length=100,
+        required=True,
+        editable=False,
+        help_text='Departamento',
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Departamento'}),
+    )
     parking = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class":"checkbox"}))
     credit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox"}))
     debit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox"}))
