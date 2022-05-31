@@ -75,6 +75,9 @@ class RestaurantForm(forms.ModelForm):
         help_text='Descripción del restaurante',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'lorem ipsum dolor sept...'}),
     )
+    type = forms.ChoiceField(
+        help_text='Tipo de restaurante'
+    )
     place = forms.CharField(
         max_length=10,
         required=True,
