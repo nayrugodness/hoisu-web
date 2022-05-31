@@ -194,20 +194,10 @@
               </div>
             </div>
             <div class="card-body">
-              {% for i in object.menu.all %}
-                  <div class="wrapper">
-                      <div class="product-img">
-                        <img src="{{ i.photo.url }}" height="100%" width="100%">
-                      </div>
-                      <div class="product-info">
-                        <div class="product-text">
-                          <h1>{{ i.name }}</h1>
-                          <p> {{ i.description|slice:":100" }} </p>
-                          <h2>$ {{ i.price }}</h2>
 
-                        </div>
-                      </div>
-                  </div>
+              <img src="{{ object.menu.url }}" height="100%" width="100%">
+
+            </div>
 
               {% endfor %}
               {% block reserva %}
