@@ -51,7 +51,7 @@ class Restaurant(models.Model):
     departamento = models.CharField(max_length=20,default="Quindío")
     price_min = models.CharField(max_length=10)
     price_max = models.CharField(max_length=50)
-    menu = models.ManyToManyField(ItemMenu)
+    menu = models.ImageField(upload_to='restaurant/menu', null=True, blank=True)
     email = models.EmailField()
     description = models.TextField()
     type = models.CharField(max_length=20, choices=Categoria, default="Gourmet")
