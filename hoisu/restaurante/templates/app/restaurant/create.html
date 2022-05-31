@@ -151,7 +151,7 @@
                       {% for field in form.visible_fields %}
                       <div class="col-lg-6">
                         <div class="form-group focused">
-                          <label class="form-control-label">{{ field.label_tag }}</label>
+                          <label class="form-control-label">{{ field.help_text }}</label>
                            {{ field.errors }}
                             {% if field.name == 'parking' %}
                              {% render_field field class="checkbox" %}
@@ -162,7 +162,6 @@
                             {% else %}
                              {% render_field field class="form-control form-control-alternative" placeholder=field.name %}
                             {% endif %}
-                           {{ field.help_text }}
                         </div>
                       </div>
                      {% endfor %}

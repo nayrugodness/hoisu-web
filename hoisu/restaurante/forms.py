@@ -25,7 +25,12 @@ class EventForm(forms.ModelForm):
         fields = '__all__'
 
 class RestaurantForm(forms.ModelForm):
-
+    name = forms.CharField(
+        max_length=100,
+        required=True,
+        help_text='Nombre del restaurante',
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre del restaurante'}),
+    )
     parking = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class":"checkbox"}))
     credit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox"}))
     debit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox"}))
