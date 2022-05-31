@@ -86,7 +86,8 @@
       </div>
     </nav>
     <!-- Header -->
-    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px;  background-image: url({{ object.principal_image.url }}); background-size: cover; background-position: center top;">
+    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+         style="min-height: 600px;  background-image: url({{ object.principal_image.url }}); background-size: cover; background-position: center top;">
       <!-- Mask -->
       <span class="mask bg-gradient-default opacity-8"></span>
       <!-- Header container -->
@@ -110,7 +111,13 @@
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
                   <a href="#">
-                    <img src="{{ object.principal_image.url }}" width="150" height="150" style="object-fit:cover;" class="rounded-circle">
+                    {% if object.principal_image %}
+                      <img src="{{ object.principal_image.url }}" width="150"
+                           height="150" style="object-fit:cover;" class="rounded-circle">
+                    {% else %}
+                       <img src="https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="150"
+                           height="150" style="object-fit:cover;" class="rounded-circle">
+                    {% endif %}
                   </a>
                 </div>
               </div>
