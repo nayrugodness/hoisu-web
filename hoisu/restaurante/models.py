@@ -3,12 +3,7 @@ from django.template.defaultfilters import slugify
 
 # Create your models here.
 
-class ItemMenu(models.Model):
-    name = models.CharField(max_length=50)
-    id = models.AutoField(primary_key=True)
-    description = models.TextField()
-    photo = models.ImageField(upload_to='restaurant/menu', null=False)
-    price = models.CharField(max_length=10, default=0)
+
 
 class Gallery(models.Model):
     id = models.AutoField(primary_key=True)
