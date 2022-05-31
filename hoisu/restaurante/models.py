@@ -5,18 +5,6 @@ from django.template.defaultfilters import slugify
 
 
 
-class Gallery(models.Model):
-    id = models.AutoField(primary_key=True)
-    photo = models.ImageField(upload_to='restaurant/gallery', null=False)
-
-class Event(models.Model):
-    name = models.CharField(max_length=50)
-    id = models.AutoField(primary_key=True)
-    description = models.TextField()
-    photo = models.ImageField(upload_to='restaurant/event', null=False)
-    price = models.CharField(max_length=10, default=0)
-
-
 Categoria=(
     ('Buffet', 'Buffet'),
     ('Comida rápida', 'Comida rápida'),
