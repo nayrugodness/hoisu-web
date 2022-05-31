@@ -68,7 +68,10 @@ class RestaurantForm(forms.ModelForm):
 
     class Meta:
         model = Restaurant
-        fields = '__all__'
+        fields = [
+            'name', 'cell', 'city', 'price_min', 'price_max', 'menu', 'email', 'description', 'type',
+            'place', 'principal_image', 'credit_card', 'debit_card'
+        ]
 
 
 
