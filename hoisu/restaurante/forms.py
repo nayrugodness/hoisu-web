@@ -62,6 +62,14 @@ class RestaurantForm(forms.ModelForm):
         help_text='Precio máximo',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: 60,000'}),
     )
+
+    email = forms.EmailField(
+        max_length=100,
+        required=True,
+        help_text='Correo electrónico',
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'restaurante@gmail.com'}),
+    )
+
     parking = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class":"checkbox"}))
     credit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox"}))
     debit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox"}))
