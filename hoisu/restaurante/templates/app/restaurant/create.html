@@ -151,6 +151,12 @@
                       {% for field in form.visible_fields %}
                       <div class="col-lg-6">
                         <div class="form-group focused">
+                            {% if field.name == 'city' %}
+                                 <label class="form-control-label">Ciudad</label>
+                            {% endif %}
+                            {% if field.name == 'type' %}
+                                 <label class="form-control-label">Categoría del restaurante</label>
+                            {% endif %}
                           <label class="form-control-label">{{ field.help_text }}</label>
                            {{ field.errors }}
                             {% if field.name == 'parking' %}
