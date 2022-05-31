@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from .models import Restaurant, Reservation
-from .forms import RestaurantForm, ReservationForm
+from .forms import RestaurantForm, ReservationForm, CustomUserCreationForm
 from rest_framework import viewsets
 from .serializers import  RestaurantSerializer, \
     ReservationSerializer
@@ -23,24 +23,26 @@ def index(request):
     return render(request, 'app/index.html', data)
 
 
-def register(request):
-    if request.method == 'GET':
-        form = RegisterForm()
-        context = {'form': form}
-        return render(request, 'registration/register.html', context)
-    if request.method == 'POST':
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request, 'Account was created for ' + user)
-            return redirect('home_page')
-        else:
-            messages.error(request, 'Error Processing Your Request')
-            context = {'form': form}
-    return render(request, 'registration/register.html', context)
 
-    return render(request, 'register.html', {})
+
+def register(request):
+    data = {
+        'form': CustomUserCreationForm()
+    }
+
+    if request.method == 'POST':
+        formulario = CustomUserCreationForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(
+                username=formulario.cleaned_data['username'], password=formulario.cleaned_data['password1'])
+            login(request, user)
+            messages.success(request, 'Te haz registrado correctamente')
+            return redirect(to='index')
+        else:
+            data['form'] = formulario
+
+    return render(request, 'registration/register.html', data)
 
 
 def list_restaurants(request):
