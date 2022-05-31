@@ -276,7 +276,18 @@
                 </div>
               </form>-->
               {% endblock %}
+             {% load crispy_forms_tags %}
+                  <form method="POST" enctype="multipart/form-data">
 
+                      <!-- Security token -->
+                      {% csrf_token %}
+
+                      <!-- Using the formset -->
+                      {{ form.as_p }}
+                      {{ form.errors }}
+                      {{ form.non_field_errors }}
+                      <input type="submit" value="Submit">
+                  </form>
             </div>
           </div>
         </div>
