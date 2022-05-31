@@ -41,7 +41,7 @@ class RestaurantForm(forms.ModelForm):
 
         required=True,
         help_text='Ciudad',
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ciudad'}),
+
     )
     departamento = forms.CharField(
         max_length=100,
