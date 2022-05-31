@@ -40,8 +40,6 @@ class Restaurant(models.Model):
     type = models.CharField(max_length=20, choices=Categoria, default="Gourmet")
     place = models.CharField(max_length=50)
     principal_image = models.ImageField(upload_to='restaurant/principal-img', null=True, blank=True)
-    gallery = models.ManyToManyField(Gallery)
-    events = models.ManyToManyField(Event)
     parking = models.BooleanField()
     credit_card = models.BooleanField()
     debit_card = models.BooleanField()
