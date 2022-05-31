@@ -130,7 +130,6 @@
         <div class="form-group">
         <div class="custom-control">
         {{form.check}}
-        <label >I Accept <a href="{% url 'terms' %}" class="text-primary">Terms And Condition</a></label>
         </div>
         {% if form.check.errors %}
         {% for error in form.check.errors %}
