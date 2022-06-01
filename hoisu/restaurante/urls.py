@@ -10,6 +10,7 @@ urlpatterns = [
     path('registrar/', views.create_restaurant, name='registrar'),
     path('modificar-restaurante/<slug:slug>', views.update_restaurant, name='modificar-restaurante'),
     path('restaurante/<slug:slug>', views.RestaurantDetailView.as_view(), name='detalle'),
+    path('mis-reservaciones/<id>', views.MyReservationDetailView.as_view(), name='mis-reservas'),
     path('modificar-reservacion/<slug:slug>', views.update_reservation, name='modificar-reservación'),
     path('reservar/<slug:slug>', views.create_reservation, name='reservar'),
     path('listar/', views.list_restaurants, name='listar'),
