@@ -56,19 +56,7 @@ class RestaurantForm(forms.ModelForm):
         help_text='Dirección ',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: Km 7 vía Caimo'}),
     )
-    parking = forms.BooleanField(
-        help_text = '¿Tiene parqueadero?',
-        widget=forms.CheckboxInput(attrs={"class":"checkbox"})
-    )
-    credit_card = forms.BooleanField(
-        help_text='¿Aceptan tarjeta de crédito?',
-        widget=forms.CheckboxInput(
-            attrs={"class": "checkbox"})
-    )
-    debit_card = forms.BooleanField(
-        help_text='¿Aceptan tarjeta débito?',
-        widget=forms.CheckboxInput(attrs={"class": "checkbox"})
-    )
+
 
     class Meta:
         model = Restaurant
