@@ -51,7 +51,8 @@ class Restaurant(models.Model):
 
 
 class Users(models.Model):
-    userName = models.CharField(max_length=250, primary_key=True)
+    id = models.AutoField(primary_key=True)
+    userName = models.CharField(max_length=250)
     names = models.CharField(max_length=50)
     email = models.EmailField(blank=True, null=True)
     password1 = models.CharField(max_length=250)

@@ -104,10 +104,14 @@ class RestaurantDetailView(DetailView):
     queryset = Restaurant.objects.all()
 
 
-class MyReservationDetailView(DetailView):
+def my_reservations(request, id):
+    reservation = Reservation.objects.filter(id=id)
 
-    template_name = 'app/restaurant/detail.html'
-    queryset = Reservation.objects.all()
+    data = {
+        'reservation': reservation
+    }
+
+    return render(request, 'app/reservation/myreservation.html', data)
 
 def create_reservation(request, slug):
     restaurant = get_object_or_404(Restaurant, slug=slug)

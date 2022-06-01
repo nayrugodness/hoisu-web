@@ -46,6 +46,7 @@
 
             {% if user.is_authenticated %}
               <li><a href="{% url 'registrar' %}">Registrar mi restaurante</a></li>
+
               <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
               <li><a href="#">{{ user.username }}</a></li>
             {% else %}
