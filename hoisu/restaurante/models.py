@@ -31,7 +31,6 @@ class Restaurant(models.Model):
     name = models.CharField(max_length=50)
     cell = models.CharField(max_length=15, default=0)
     city = models.CharField(max_length=20, choices=Ciudad, default="Armenia")
-    departamento = models.CharField(max_length=20,default="Quindío")
     price_min = models.CharField(max_length=10)
     price_max = models.CharField(max_length=50)
     menu = models.ImageField(upload_to='restaurant/menu', null=True, blank=True)

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-from .models import Restaurant, Users, Reservation
+from .models import Restaurant, Users, Reservation, Ciudad
 from django.db.models import fields
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -20,12 +20,6 @@ class RestaurantForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Número telefónico'}),
     )
 
-    departamento = forms.CharField(
-        max_length=100,
-        required=True,
-        help_text='Departamento',
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Departamento'}),
-    )
     price_min = forms.CharField(
         max_length=100,
         required=True,
@@ -39,7 +33,7 @@ class RestaurantForm(forms.ModelForm):
         help_text='Precio máximo',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: 60,000'}),
     )
-
+    city = forms.ChoiceField(help_text='Ciudad', choices=Ciudad)
     email = forms.EmailField(
         max_length=100,
         required=True,
@@ -58,9 +52,18 @@ class RestaurantForm(forms.ModelForm):
         help_text='Dirección ',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: Km 7 vía Caimo'}),
     )
-    parking = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox"}))
-    credit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox"}))
-    debit_card = forms.BooleanField(widget=forms.CheckboxInput(attrs={"class": "checkbox"}))
+    parking = forms.BooleanField(
+        help_text='¿Tiene parqueadero?',
+        widget=forms.CheckboxInput(attrs={"class": "checkbox"})
+    )
+    credit_card = forms.BooleanField(
+        help_text='¿Acepta tarjeta de crédito?',
+        widget=forms.CheckboxInput(attrs={"class": "checkbox"})
+    )
+    debit_card = forms.BooleanField(
+        help_text='¿Acepta tarjet débito?',
+        widget=forms.CheckboxInput(attrs={"class": "checkbox"})
+    )
 
     class Meta:
         model = Restaurant
