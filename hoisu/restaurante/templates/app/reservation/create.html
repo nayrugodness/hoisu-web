@@ -23,7 +23,7 @@
 </head>
 <body style="height:100%;
     background: radial-gradient(circle, rgba(3,0,0,1) 0%, rgba(3,3,3,0) 100%),
-    url('https://images.pexels.com/photos/1833349/pexels-photo-1833349.jpeg?cs=srgb&dl=pexels-valeria-boltneva-1833349.jpg&fm=jpg');
+    url('https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     background-size: cover; background-position: center; background-repeat: no-repeat; ">
 {% load widget_tweaks %}
 {% load crispy_forms_tags %}
@@ -117,9 +117,9 @@
                       {% for field in form.visible_fields %}
                       <div class="col-lg-6">
                         <div class="form-group focused">
-                          <label class="form-control-label">{{ field.label_tag }}</label>
+                          <label class="form-control-label">{{ field.help_text }}</label>
                            {{ field.errors }}
-                            {% render_field field class="form-control form-control-alternative" placeholder=field.name %}
+                            {% render_field field class="form-control form-control-alternative" %}
                            {{ field.help_text }}
                         </div>
                       </div>

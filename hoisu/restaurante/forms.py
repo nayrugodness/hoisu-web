@@ -1,12 +1,7 @@
-import kwargs as kwargs
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-<<<<<<< HEAD
 
-from .models import Restaurant, Users, Reservation, Ciudad
-=======
 from .models import Restaurant, Users, Reservation, Ciudad, Categoria
->>>>>>> fc474ae93b6fe1593b65e4f8bf29fbffe5d4b5ac
 from django.db.models import fields
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -72,10 +67,6 @@ class RestaurantForm(forms.ModelForm):
         help_text='¿Acepta tarjeta débito?',
         widget=forms.CheckboxInput(attrs={"class": "checkbox"})
     )
-<<<<<<< HEAD
-
-=======
->>>>>>> fc474ae93b6fe1593b65e4f8bf29fbffe5d4b5ac
 
     class Meta:
         model = Restaurant
@@ -86,6 +77,36 @@ class RestaurantForm(forms.ModelForm):
 
 
 class ReservationForm(forms.ModelForm):
+    name = forms.CharField(
+        max_length=100,
+        required=True,
+        help_text='Nombres',
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+    )
+    lastname = forms.CharField(
+        max_length=100,
+        required=True,
+        help_text='Apellidos',
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+    )
+    email = forms.EmailField(
+        required=True,
+        help_text='Correo electrónico',
+        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: nombre@gmail.com'}),
+    )
+    cell = forms.CharField(
+        max_length=100,
+        required=True,
+        help_text='Número telefónico',
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: 3156277777'}),
+    )
+    customers = forms.CharField(
+        max_length=100,
+        required=True,
+        help_text='Número de personas',
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: 2 '}),
+    )
+
     class Meta:
         model = Reservation
         fields = '__all__'
