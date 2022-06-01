@@ -1,3 +1,4 @@
+import kwargs as kwargs
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from .models import Restaurant, Users, Reservation, Ciudad, Categoria
@@ -51,7 +52,8 @@ class RestaurantForm(forms.ModelForm):
         max_length=10,
         required=True,
         help_text='Dirección ',
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: Km 7 vía Caimo'}),
+        widget=forms.TextInput(attrs={'class': 'form-control',
+                                      'placeholder': 'Ejemplo: Km 7 vía Caimo'}),
     )
     parking = forms.BooleanField(
         help_text='¿Tiene parqueadero?',
@@ -62,7 +64,7 @@ class RestaurantForm(forms.ModelForm):
         widget=forms.CheckboxInput(attrs={"class": "checkbox"})
     )
     debit_card = forms.BooleanField(
-        help_text='¿Acepta tarjet débito?',
+        help_text='¿Acepta tarjeta débito?',
         widget=forms.CheckboxInput(attrs={"class": "checkbox"})
     )
 
