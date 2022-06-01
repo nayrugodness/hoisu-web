@@ -31,15 +31,14 @@ class Restaurant(models.Model):
     name = models.CharField(max_length=50)
     cell = models.CharField(max_length=15, default=0)
     city = models.CharField(max_length=20, choices=Ciudad, default="Armenia")
-    departamento = models.CharField(max_length=20,default="Quindío")
     price_min = models.CharField(max_length=10)
     price_max = models.CharField(max_length=50)
-    menu = models.ImageField(upload_to='restaurant/menu', null=True, blank=True)
+    menu = models.ImageField(upload_to='restaurant/menu', null=True)
     email = models.EmailField()
     description = models.TextField()
     type = models.CharField(max_length=20, choices=Categoria, default="Gourmet")
     place = models.CharField(max_length=50)
-    principal_image = models.ImageField(upload_to='restaurant/principal-img', null=True, blank=True)
+    principal_image = models.ImageField(upload_to='restaurant/principal-img', null=True)
     parking = models.BooleanField()
     credit_card = models.BooleanField()
     debit_card = models.BooleanField()
@@ -52,7 +51,8 @@ class Restaurant(models.Model):
 
 
 class Users(models.Model):
-    userName = models.CharField(max_length=250, primary_key=True)
+    id = models.AutoField(primary_key=True)
+    userName = models.CharField(max_length=250)
     names = models.CharField(max_length=50)
     email = models.EmailField(blank=True, null=True)
     password1 = models.CharField(max_length=250)

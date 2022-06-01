@@ -666,6 +666,9 @@ textarea.form-control {
 
 .btn-info {
   color: #fff;
+  width: 10rem;
+  padding: 1rem;
+  font-size: 1.3rem;
   border-color: #AC0202;
   background-color: #AC0202;
 

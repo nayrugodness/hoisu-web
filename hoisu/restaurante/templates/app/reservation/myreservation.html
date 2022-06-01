@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
      <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,16 +33,17 @@
   background-repeat: no-repeat;
 ">
 <div class="container">
-    <h1 style="font-size: 3rem; color: #AC0202; text-align:center;">Reservaciones</h1>
+    <h1 style="font-size: 3rem; color: #AC0202; text-align:center;">Mis reservaciones</h1>
       <table class="rwd-table">
         <tbody>
           <tr>
-            <th>Nombres</th>
-            <th>Apellidos</th>
-            <th>Correo</th>
-            <th>Teléfono</th>
-            <th>Comensales</th>
-            <th>Fecha</th>
+              <th>Nombres</th>
+              <th>Apellidos</th>
+              <th>Restaurante</th>
+              <th>Correo</th>
+              <th>Teléfono</th>
+              <th>Comensales</th>
+              <th>Fecha</th>
           </tr>
           {% for r in reservation %}
           <tr>
@@ -51,6 +52,9 @@
             </td>
              <td data-th="apellidos">
               {{ r.lastname }}
+            </td>
+              <td data-th="restaurante">
+              {{ r.restaurant }}
             </td>
              <td data-th="correo">
               {{ r.email }}

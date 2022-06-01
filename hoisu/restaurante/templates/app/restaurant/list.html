@@ -30,7 +30,7 @@
 </head>
 <body style=" height: 100%;
   background: radial-gradient(circle, rgba(3,0,0,1) 0%, rgba(3,3,3,0) 100%),
-    url('https://images.pexels.com/photos/1833349/pexels-photo-1833349.jpeg?cs=srgb&dl=pexels-valeria-boltneva-1833349.jpg&fm=jpg');
+    url('https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; ">
@@ -45,7 +45,7 @@
           <ul class="menu-items" style="background-color: #AC0202;">
               <li><a href="{% url 'index' %}">Home</a></li>
               <li><a href="{% url 'listar' %}">Restaurantes</a></li>
-              <li><a href="#food">Categorias</a></li>
+
 
             {% if user.is_authenticated %}
               <li><a href="{% url 'registrar' %}">Registrar mi restaurante</a></li>
@@ -104,6 +104,31 @@
                         {% endif %}
                           <div class="card_title title-white">
                             <p style="color: white;">{{ r.name }}</p>
+                              <p style="font-size:1rem; margin-top: 0.3rem;"><i>{{ r.get_city_display }}</i></p>
+                          </div>
+                    </div>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+<h2 style="font-size: 2.5rem; color:white; padding-top:6rem; text-align: center;">Restaurantes casuales</h2>
+<div class="cards-list" style="padding-top: 3rem;">
+
+        {% for r in restaurant %}
+            {% if r.type == 'Casual' %}
+                <a href="/restaurante/{{ r.slug }}" style="text-decoration: none;">
+                    <div class="card 1" style="">
+                        {% if r.principal_image %}
+                          <div class="card_image" style="">
+                              <img src="{{ r.principal_image.url }}" />
+                          </div>
+                        {% else %}
+                          <div class="card_image" style="">
+                              <img src="https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                          </div>
+                        {% endif %}
+                          <div class="card_title title-white">
+                            <p style="color: black;">{{ r.name }}</p>
                               <p style="font-size:1rem; margin-top: 0.3rem;"><i>{{ r.get_city_display }}</i></p>
                           </div>
                     </div>

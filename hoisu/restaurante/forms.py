@@ -1,13 +1,15 @@
+import kwargs as kwargs
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
+<<<<<<< HEAD
 
 from .models import Restaurant, Users, Reservation, Ciudad
+=======
+from .models import Restaurant, Users, Reservation, Ciudad, Categoria
+>>>>>>> fc474ae93b6fe1593b65e4f8bf29fbffe5d4b5ac
 from django.db.models import fields
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-
-
-
 
 
 class RestaurantForm(forms.ModelForm):
@@ -37,7 +39,8 @@ class RestaurantForm(forms.ModelForm):
         help_text='Precio máximo',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: 60,000'}),
     )
-
+    city = forms.ChoiceField(help_text='Ciudad', choices=Ciudad)
+    type = forms.ChoiceField(help_text='Categoría', choices=Categoria)
     email = forms.EmailField(
         max_length=100,
         required=True,
@@ -54,9 +57,25 @@ class RestaurantForm(forms.ModelForm):
         max_length=10,
         required=True,
         help_text='Dirección ',
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: Km 7 vía Caimo'}),
+        widget=forms.TextInput(attrs={'class': 'form-control',
+                                      'placeholder': 'Ejemplo: Km 7 vía Caimo'}),
     )
+    parking = forms.BooleanField(
+        help_text='¿Tiene parqueadero?',
+        widget=forms.CheckboxInput(attrs={"class": "checkbox"})
+    )
+    credit_card = forms.BooleanField(
+        help_text='¿Acepta tarjeta de crédito?',
+        widget=forms.CheckboxInput(attrs={"class": "checkbox"})
+    )
+    debit_card = forms.BooleanField(
+        help_text='¿Acepta tarjeta débito?',
+        widget=forms.CheckboxInput(attrs={"class": "checkbox"})
+    )
+<<<<<<< HEAD
 
+=======
+>>>>>>> fc474ae93b6fe1593b65e4f8bf29fbffe5d4b5ac
 
     class Meta:
         model = Restaurant
@@ -66,16 +85,14 @@ class RestaurantForm(forms.ModelForm):
         ]
 
 
-
 class ReservationForm(forms.ModelForm):
-
-
     class Meta:
         model = Reservation
         fields = '__all__'
         widgets = {
             'reservation': forms.SelectDateWidget()
         }
+
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(
@@ -120,3 +137,11 @@ class RegisterForm(UserCreationForm):
         fields = [
             'username', 'email', 'first_name', 'last_name', 'password1', 'password2', 'check',
         ]
+
+
+class CustomUserCreationForm(UserCreationForm):
+
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name',
+                  'email', 'password1', 'password2']

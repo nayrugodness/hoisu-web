@@ -10,9 +10,10 @@ urlpatterns = [
     path('registrar/', views.create_restaurant, name='registrar'),
     path('modificar-restaurante/<slug:slug>', views.update_restaurant, name='modificar-restaurante'),
     path('restaurante/<slug:slug>', views.RestaurantDetailView.as_view(), name='detalle'),
+    path('reservas/<id>', views.my_reservations, name='reservas'),
     path('modificar-reservacion/<slug:slug>', views.update_reservation, name='modificar-reservación'),
     path('reservar/<slug:slug>', views.create_reservation, name='reservar'),
     path('listar/', views.list_restaurants, name='listar'),
     path('listar-reservaciones/<id>', views.list_reservations, name='reservaciones'),
-    path('register/',views.register, name='register'),
+    path('register/', views.register, name='register'),
 ]
