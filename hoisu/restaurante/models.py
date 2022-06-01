@@ -42,7 +42,7 @@ class Restaurant(models.Model):
     parking = models.BooleanField()
     credit_card = models.BooleanField()
     debit_card = models.BooleanField()
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, auto_created=True, editable=False)
 
 
 
