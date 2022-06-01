@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-from .models import Restaurant, Users, Reservation, Ciudad
+from .models import Restaurant, Users, Reservation, Ciudad, Categoria
 from django.db.models import fields
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -34,6 +34,7 @@ class RestaurantForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: 60,000'}),
     )
     city = forms.ChoiceField(help_text='Ciudad', choices=Ciudad)
+    type = forms.ChoiceField(help_text='Categoría', choices=Categoria)
     email = forms.EmailField(
         max_length=100,
         required=True,
