@@ -1,10 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hoisu</title>
+
+    {% load static %}
+
+    <link rel="icon" type="image/png" href="{% static 'app/images/HoisuC&R.png' %}">
+    {% block css %}
+    {% endblock %}
+    <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reservation-list.css' %}">
+
+
+    {% load pwa %}
+
+    {% progressive_web_app_meta %}
 </head>
-<body>
-    <h1>Mis reservas</h1>
+<body style="height: 100vh;
+  background: radial-gradient(circle, rgba(3,0,0,1) 0%, rgba(3,3,3,0) 100%),
+    url('https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+">
+<div class="container">
+    <h1 style="font-size: 3rem; color: #AC0202; text-align:center;">Mis reservaciones</h1>
+      <table class="rwd-table">
+        <tbody>
+          <tr>
+              <th>Nombres</th>
+              <th>Apellidos</th>
+              <th>Restaurante</th>
+              <th>Correo</th>
+              <th>Teléfono</th>
+              <th>Comensales</th>
+              <th>Fecha</th>
+          </tr>
+          {% for r in reservation %}
+          <tr>
+            <td data-th="nombre">
+              {{ r.name }}
+            </td>
+             <td data-th="apellidos">
+              {{ r.lastname }}
+            </td>
+              <td data-th="restaurante">
+              {{ r.restaurant }}
+            </td>
+             <td data-th="correo">
+              {{ r.email }}
+            </td>
+             <td data-th="teléfono">
+              {{ r.cell }}
+            </td>
+             <td data-th="comensales">
+              {{ r.customers }}
+            </td>
+             <td data-th="fecha de la reserva">
+              {{ r.reservation }}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
 </body>
 </html>
